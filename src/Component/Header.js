@@ -21,7 +21,7 @@ const Header = () => {
 
         {/* Menu Button (Mobile) */}
         <button
-          className="md:hidden text-white focus:outline-none"
+          className="md:hidden text-blue-900 focus:outline-none"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -29,11 +29,11 @@ const Header = () => {
 
         {/* Navigation Menu */}
         <nav
-          className={`absolute md:static top-16 left-0 w-full md:w-auto bg-blue-900 md:bg-transparent p-4 md:p-0 transition-all ${
-            menuOpen ? "block" : "hidden"
-          } md:flex md:flex-grow md:justify-center md:space-x-8 text-lg`}
+          className={`absolute md:static top-16 left-0 w-full md:w-auto bg-white md:bg-transparent p-4 md:p-0 transition-all ${
+            menuOpen ? "block z-50" : "hidden"
+          } md:flex md:flex-grow md:justify-center md:space-x-8 text-lg text-blue-900 shadow-md md:shadow-none`}
         >
-          <ul className="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0 w-full md:justify-center">
+          <ul className="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0 w-full md:justify-center items-center">
             <li>
               <Link to="/" className="hover:underline" onClick={() => setMenuOpen(false)}>
                 All Products
