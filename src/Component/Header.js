@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 
 const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <header className="bg-blue-900 text-white p-4 shadow-md">
-      <div className="container mx-auto flex justify-stretch items-center">
+      <div className="container mx-auto flex justify-between md:justify-stretch items-center">
         {/* Logo and Title */}
         <div className="flex items-center space-x-2">
                 <img
@@ -16,21 +19,33 @@ const Header = () => {
                   </Link>
         </div>
 
+        {/* Menu Button (Mobile) */}
+        <button
+          className="md:hidden text-white focus:outline-none"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+
         {/* Navigation Menu */}
-        <nav>
-          <ul className="flex space-x-16">
+        <nav
+          className={`absolute md:static top-16 left-0 w-full md:w-auto bg-blue-900 md:bg-transparent p-4 md:p-0 transition-all ${
+            menuOpen ? "block" : "hidden"
+          } md:flex md:flex-grow md:justify-center md:space-x-8 text-lg`}
+        >
+          <ul className="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0 w-full md:justify-center">
             <li>
-              <Link to="/" className="hover:underline">
+              <Link to="/" className="hover:underline" onClick={() => setMenuOpen(false)}>
                 All Products
               </Link>
             </li>
             <li>
-              <Link to="/?category=Industrial Valve" className="hover:underline">
+              <Link to="/?category=Industrial Valve" className="hover:underline" onClick={() => setMenuOpen(false)}>
                 Industrial Valves
               </Link>
             </li>
             <li>
-              <Link to={`/?category=${encodeURIComponent("Crushing & Mining")}`} className="hover:underline">
+              <Link to={`/?category=${encodeURIComponent("Crushing & Mining")}`} className="hover:underline" onClick={() => setMenuOpen(false)}>
                 Crusher & Minings
               </Link>
             </li>
