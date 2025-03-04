@@ -5,7 +5,7 @@ import { Menu, X } from "lucide-react";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
-    <header className="bg-blue-900 text-white p-4 shadow-md">
+    <header className="bg-gray-300 text-blue-900 p-4 shadow-md">
       <div className="container mx-auto flex justify-between md:justify-stretch items-center">
         {/* Logo and Title */}
         <div className="flex items-center space-x-2">

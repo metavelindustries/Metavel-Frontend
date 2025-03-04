@@ -27,7 +27,7 @@ const Valve = () => {
             }
         };
         fetchValve();
-        window.scrollTo(0, 0); 
+        window.scrollTo(0, 0);
     }, [id]);
 
     const handleInquiry = () => {
@@ -55,45 +55,16 @@ const Valve = () => {
     return (
         <div className="container mx-auto px-4 py-8">
             <div className="flex justify-between items-center my-4">
-            <button onClick={() => navigate(-1)} className="text-blue-900 hover:underline mb-4">
-                ← Back to Home
-            </button>
-            <button onClick={handleInquiry} className="mt-4 bg-blue-900 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-300">
-                        Get Inquiry
-            </button>
+                <button onClick={() => navigate(-1)} className="text-blue-900 hover:underline">
+                    ← Back to Home
+                </button>
+                <button onClick={handleInquiry} className="bg-blue-900 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-300">
+                    Get Inquiry
+                </button>
             </div>
             {/* Top Section */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Image Slider */}
-                <div>
-                    <Swiper
-                        spaceBetween={10}
-                        slidesPerView={1}
-                        navigation
-                        pagination={{ clickable: true }}
-                        loop={true}
-                        modules={[Navigation, Pagination]}
-                    >
-                        {valve.images.slice(0, 3).map((img, index) => (
-                            <SwiperSlide key={index}>
-                                <img src={img.url} alt="Valve" className="w-full h-[28rem] object-cover rounded-lg" />
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
-                </div>
-                {/* Details */}
-                <div>
-                    <h1 className="text-2xl font-bold text-gray-800">{valve.name}</h1>
-                    <p className="mt-2 text-gray-600">{valve.metaDescription}</p>
-                    <p className="mt-10 text-gray-700">{valve.shortDescription}</p>
-                    <p className="mt-10 text-gray-500">Category: {valve.category.name}</p>
-                    
-                </div>
-            </div>
-
-            {/* Middle Section */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                <p className="text-gray-700">{valve.bigDescription}</p>
                 <div>
                 <Swiper
                         spaceBetween={10}
@@ -103,9 +74,38 @@ const Valve = () => {
                         loop={true}
                         modules={[Navigation, Pagination]}
                     >
+                        {valve.images.slice(0, 3).map((img, index) => (
+                            <SwiperSlide key={index}>
+                                <img src={img.url} alt="Valve" className="w-full aspect-[16/9] object-contain rounded-lg mx-auto" />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>             
+                </div>
+                {/* Details */}
+                <div>
+                    <h1 className="text-2xl font-bold text-gray-800">{valve.name}</h1>
+                    <p className="mt-2 text-gray-600">{valve.metaDescription}</p>
+                    <p className="mt-10 text-gray-700">{valve.shortDescription}</p>
+                    <p className="mt-10 text-gray-500">Category: {valve.category.name}</p>
+
+                </div>
+            </div>
+
+            {/* Middle Section */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                <p className="text-gray-700">{valve.bigDescription}</p>
+                <div>
+                    <Swiper
+                        spaceBetween={10}
+                        slidesPerView={1}
+                        navigation
+                        pagination={{ clickable: true }}
+                        loop={true}
+                        modules={[Navigation, Pagination]}
+                    >
                         {valve.images.slice(3, 6).map((img, index) => (
                             <SwiperSlide key={index}>
-                                <img src={img.url} alt="Valve" className="w-full h-[28rem] object-cover rounded-lg" />
+                                <img src={img.url} alt="Valve" className="w-full aspect-[16/9] object-contain rounded-lg mx-auto" />
                             </SwiperSlide>
                         ))}
                     </Swiper>
@@ -116,7 +116,7 @@ const Valve = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
                 {/* Slider */}
                 <div className='items-end mt-20'>
-                <Swiper
+                    <Swiper
                         spaceBetween={10}
                         slidesPerView={1}
                         navigation
@@ -126,27 +126,27 @@ const Valve = () => {
                     >
                         {valve.images.slice(6, 9).map((img, index) => (
                             <SwiperSlide key={index}>
-                                <img src={img.url} alt="Valve" className="w-full h-[28rem] object-cover rounded-lg" />
+                                <img src={img.url} alt="Valve" className="w-full aspect-[16/9] object-contain rounded-lg mx-auto" />
                             </SwiperSlide>
                         ))}
                     </Swiper>
                 </div>
                 {/* Key Features Table */}
                 <div className="mt-8">
-                <h2 className="text-xl font-bold text-gray-900 mb-4 text-left">Key Features:</h2>
-                <table className="w-full border-collapse border border-gray-300">
-                    <tbody>
-                        {valve.keyFeatures.map((feature, index) => {
-                            const [title, description] = feature.split("::");
-                            return (
-                                <tr key={index} className="border-b">
-                                    <td className="p-2 font-bold text-gray-800">{title}</td>
-                                    <td className="p-2 text-gray-600">{description}</td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </table>
+                    <h2 className="text-xl font-bold text-gray-900 mb-4 text-left">Key Features:</h2>
+                    <table className="w-full border-collapse border border-gray-300">
+                        <tbody>
+                            {valve.keyFeatures.map((feature, index) => {
+                                const [title, description] = feature.split("::");
+                                return (
+                                    <tr key={index} className="border-b">
+                                        <td className="p-2 font-bold text-gray-800">{title}</td>
+                                        <td className="p-2 text-gray-600">{description}</td>
+                                    </tr>
+                                );
+                            })}
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
