@@ -36,16 +36,21 @@ const Header = () => {
           <ul className="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0 w-full md:justify-center items-center">
             <li>
               <Link to="/" className="hover:underline" onClick={() => setMenuOpen(false)}>
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/products" className="hover:underline" onClick={() => setMenuOpen(false)}>
                 All Products
               </Link>
             </li>
             <li>
-              <Link to="/?category=Industrial Valve" className="hover:underline" onClick={() => setMenuOpen(false)}>
+              <Link to="/products?category=Industrial Valve" className="hover:underline" onClick={() => setMenuOpen(false)}>
                 Industrial Valves
               </Link>
             </li>
             <li>
-              <Link to={`/?category=${encodeURIComponent("Crushing & Mining")}`} className="hover:underline" onClick={() => setMenuOpen(false)}>
+              <Link to={`/products?category=${encodeURIComponent("Crushing & Mining")}`} className="hover:underline" onClick={() => setMenuOpen(false)}>
                 Crusher & Minings
               </Link>
             </li>

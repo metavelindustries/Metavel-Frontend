@@ -67,7 +67,7 @@ const Home = () => {
             placeholder="Search valves..."
             className="w-full p-3 pl-10 border-2 border-blue-600 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
             value={searchTerm}
-            onChange={handleSearchChange} // 🔥 Reset "show all" on search
+            onChange={handleSearchChange} //  Reset "show all" on search
           />
           <svg className="absolute left-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-gray-500"  
             xmlns="http://www.w3.org/2000/svg"  
