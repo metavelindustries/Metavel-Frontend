@@ -15,8 +15,8 @@ function App() {
         <Route path="/products" element={<Home />} />
         <Route path="/valve/:id" element={<Valve />} />
       </Routes>
-    </Router>
       <Footer />
+    </Router>
     </div>
   );
 }
