@@ -34,7 +34,7 @@ const Dashboard = () => {
                 modules={[Autoplay, Pagination]}
                 className="w-full h-[300px] md:h-[500px]"
             >
-                {["/image2.webp", "/crusher.jpg"].map((img, index) => (
+                {["/image2.webp", "/crusher-equipment.jpg"].map((img, index) => (
                     <SwiperSlide key={index}>
                         <img src={img} alt="Company Banner" className="w-full h-full object-cover" />
                     </SwiperSlide>
@@ -82,7 +82,7 @@ const Dashboard = () => {
                     {/* Crushing & Mining */}
                     <div className="bg-white p-4 rounded-lg shadow-md text-center">
                         <img
-                            src="/crusher-equipment.jpg"
+                            src="/crusher.jpg"
                             alt="Crushing & Mining"
                             className="w-full h-40 object-contain mx-auto"
                         />
