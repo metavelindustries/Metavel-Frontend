@@ -88,13 +88,13 @@ const Home = () => {
         {visibleValves.map(valve => (
           <div 
             key={valve._id}
-            className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+            className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
           >
             {valve.images && valve.images.length > 0 && (
               <img 
                 src={valve.images[0].url} 
                 alt={valve.name} 
-                className="h-48 object-cover rounded-md mb-4 mx-auto"
+                className="h-[20rem] object-cover rounded-md mb-4 mx-auto"
               />
             )}
             <h3 className="text-xl font-semibold text-gray-800 mb-2">{valve.name}</h3>
