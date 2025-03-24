@@ -31,7 +31,7 @@ const Valve = () => {
     }, [id]);
 
     const handleInquiry = () => {
-        const phoneNumber = "tel:+918320468884";
+        const phoneNumber = "tel:+916356973719";
         const email = "mailto:Metavelinfo@gmail.com";
 
         if (window.innerWidth <= 768) {
@@ -56,10 +56,10 @@ const Valve = () => {
         <div className="container mx-auto px-4 py-8">
             <div className="flex justify-between items-center my-4">
                 <button onClick={() => navigate(-1)} className="text-blue-900 hover:underline">
-                    ← Back to Home
+                    ← Back
                 </button>
                 <button onClick={handleInquiry} className="bg-blue-900 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-300">
-                    Get Inquiry
+                    Contact Us
                 </button>
             </div>
             {/* Top Section */}
@@ -93,7 +93,13 @@ const Valve = () => {
 
             {/* Middle Section */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                <p className="text-gray-700">{valve.bigDescription}</p>
+            <div className="text-gray-700 text-left whitespace-pre-line leading-relaxed">
+    {valve.bigDescription.split("\n").map((paragraph, index) => (
+        <p key={index} className="indent-8">{paragraph}</p>
+    ))}
+</div>
+
+
                 <div>
                     <Swiper
                         spaceBetween={10}
@@ -133,21 +139,39 @@ const Valve = () => {
                 </div>
                 {/* Key Features Table */}
                 <div className="mt-8">
-                    <h2 className="text-xl font-bold text-gray-900 mb-4 text-left">Key Features:</h2>
-                    <table className="w-full border-collapse border border-gray-300">
-                        <tbody>
-                            {valve.keyFeatures.map((feature, index) => {
-                                const [title, description] = feature.split("::");
-                                return (
-                                    <tr key={index} className="border-b">
-                                        <td className="p-2 font-bold text-gray-800">{title}</td>
-                                        <td className="p-2 text-gray-600">{description}</td>
-                                    </tr>
-                                );
-                            })}
-                        </tbody>
-                    </table>
-                </div>
+    <h2 className="text-xl font-bold text-gray-900 mb-4 text-left">Key Features:</h2>
+    <table className="w-full border-collapse border border-gray-300">
+        <tbody>
+            {valve.keyFeatures.map((feature, index) => {
+                let title = "";
+                let description = "";
+
+                // Find the first separator in the string
+                const match = feature.match(/(::|–|:)/);
+                
+                if (match) {
+                    const separator = match[0]; // Get the matched separator
+                    [title, description] = feature.split(separator).map(str => str.trim());
+                } else {
+                    // If no separator exists, treat the whole text as description
+                    title = "";
+                    description = feature.trim();
+                }
+
+                return (
+                    <tr key={index} className="border-b">
+                        <td className="p-2 text-gray-800 font-bold">{title ? `${title} ${match ? match[0] : ""}` : ""}</td>
+                        <td className="p-2 text-gray-600">{description}</td>
+                    </tr>
+                );
+            })}
+        </tbody>
+    </table>
+</div>
+
+
+
+
             </div>
 
             {/* Specifications */}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
@@ -22,29 +22,30 @@ const Dashboard = () => {
     ];
 
     return (
-        <div className="container mx-auto px-4 py-8">
-            {/* 🔹 Hero Image Swiper */}
-            <Swiper
-                spaceBetween={0}
-                slidesPerView={1}
-                autoplay={{ delay: 3000, disableOnInteraction: false }}
-                speed={1000} 
-                loop={true}
-                pagination={{ clickable: true }}
-                modules={[Autoplay, Pagination]}
-                className="w-full h-[300px] md:h-[500px]"
-            >
-                {["/image2.webp", "/crusher-equipment.jpg"].map((img, index) => (
-                    <SwiperSlide key={index}>
-                        <img src={img} alt="Company Banner" className="w-full h-full object-cover" />
-                    </SwiperSlide>
-                ))}
-            </Swiper>
+        <div className="w-full">
+            {/* 🔹 Hero Image Swiper - Gray 300 */}
+            <div className="w-full bg-gray-300">
+                <Swiper
+                    spaceBetween={0}
+                    slidesPerView={1}
+                    autoplay={{ delay: 3000, disableOnInteraction: false }}
+                    speed={1000}
+                    loop={true}
+                    pagination={{ clickable: true }}
+                    modules={[Autoplay, Pagination]}
+                    className="w-full h-[300px] md:h-[500px]"
+                >
+                    {["/image2.webp", "/crusher-equipment.jpg"].map((img, index) => (
+                        <SwiperSlide key={index}>
+                            <img src={img} alt="Company Banner" className="w-full h-full object-cover" />
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
 
-            {/* 🔹 Company Info Section */}
-            <div className="bg-gray-200 py-12 px-6">
-                <div className="container mx-auto flex flex-col md:flex-row items-center">
-                    {/* Welcome Text */}
+            {/* 🔹 Company Info Section - Gray 400 */}
+            <div className="w-full bg-gray-400 py-12 px-6">
+                <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
                     <div className="md:w-1/2 text-left">
                         <h1 className="text-3xl font-bold text-blue-900">Welcome to Metavel PVT LTD</h1>
                         <p className="mt-4 text-gray-700">
@@ -57,86 +58,81 @@ const Dashboard = () => {
                             low maintenance, and long-lasting performance, making us a trusted partner for industries worldwide.
                         </p>
                     </div>
-
-                    {/* Company Image */}
                     <div className="md:w-1/2 flex justify-center mt-6 md:mt-0">
                         <img src="/company.jpg" alt="Company" className="w-full max-w-lg rounded-lg shadow-lg" />
                     </div>
                 </div>
             </div>
 
-            {/* 🔹 Export Products Section (Static Products) */}
-            <section className="container bg-gray-200 mx-auto py-12 px-6">
-                <h2 className="text-2xl font-bold text-center text-blue-900">Our Export Products</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                    {/* Industrial Valve */}
-                    <div className="bg-white p-4 rounded-lg shadow-md text-center">
-                        <img
-                            src="/Ind-valves.jpg"
-                            alt="Industrial Valve"
-                            className="w-full h-40 object-contain mx-auto"
-                        />
-                        <h3 className="text-lg font-semibold mt-2 text-gray-800">Industrial Valve</h3>
-                    </div>
+            {/* 🔹 Export Products Section - Gray 200 */}
+            <section className="w-full bg-gray-200 py-12 px-6">
+                <div className="max-w-6xl mx-auto">
+                    <h2 className="text-2xl font-bold text-center text-blue-900">Our Export Products</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        {/* Industrial Valve */}
+                        <Link to="/products" className="bg-white p-4 rounded-lg shadow-md text-center hover:shadow-lg transition">
+                            <img
+                                src="/Ind-valves.jpg"
+                                alt="Industrial Valve"
+                                className="w-full h-40 object-contain mx-auto"
+                            />
+                            <h3 className="text-lg font-semibold mt-2 text-gray-800">Industrial Valve</h3>
+                        </Link>
 
-                    {/* Crushing & Mining */}
-                    <div className="bg-white p-4 rounded-lg shadow-md text-center">
-                        <img
-                            src="/crusher.jpg"
-                            alt="Crushing & Mining"
-                            className="w-full h-40 object-contain mx-auto"
-                        />
-                        <h3 className="text-lg font-semibold mt-2 text-gray-800">Crushing & Mining</h3>
+                        {/* Crushing & Mining */}
+                        <Link to="/products" className="bg-white p-4 rounded-lg shadow-md text-center hover:shadow-lg transition">
+                            <img
+                                src="/crusher.jpg"
+                                alt="Crushing & Mining"
+                                className="w-full h-40 object-contain mx-auto"
+                            />
+                            <h3 className="text-lg font-semibold mt-2 text-gray-800">Crushing & Mining</h3>
+                        </Link>
                     </div>
-                </div>
-                <div className="text-center mt-6">
-                    <Link
-                        to="/products"
-                        className="bg-blue-900 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition"
-                    >
-                        View More Products
-                    </Link>
+                    <div className="text-center mt-6">
+                        <Link
+                            to="/products"
+                            className="bg-blue-900 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition"
+                        >
+                            View More Products
+                        </Link>
+                    </div>
                 </div>
             </section>
 
-            {/* 🔹 Global Business Presence */}
-            <section className="bg-gray-200 py-12 px-6">
-                <h2 className="text-2xl font-bold text-center text-blue-900">Global Business Presence</h2>
-                <Swiper
-                    spaceBetween={10}
-                    slidesPerView={3} // Show 3 country images at a time
-                    autoplay={{ delay: 2500, disableOnInteraction: false }}
-                    speed={1000} // Smooth transitions
-                    loop={true}
-                    navigation
-                    pagination={{ el: ".custom-pagination", clickable: true }} // Custom pagination
-                    modules={[Autoplay, Navigation, Pagination]}
-                    className="mt-6 pb-8"
-                    breakpoints={{
-                        640: { slidesPerView: 1 }, // 1 slide for small screens
-                        768: { slidesPerView: 2 }, // 2 slides for tablets
-                        1024: { slidesPerView: 3 }, // 3 slides for desktops
-                    }}
-                >
-                    {countryImages.map((country, index) => (
-                        <SwiperSlide key={index} className="relative text-center">
-                            {/* Country Image */}
-                            <img
-                                src={country.img}
-                                alt={country.name}
-                                className="w-40 h-40 mx-auto object-contain"
-                            />
-
-                            {/* Country Name - Positioned Below Image */}
-                            <h3 className="text-lg font-semibold text-gray-800 mt-2">
-                                {country.name}
-                            </h3>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-
-                {/* Custom Pagination Below Images */}
-                <div className="custom-pagination flex justify-center mt-4"></div>
+            {/* 🔹 Global Business Presence - Gray 100 */}
+            <section className="w-full bg-gray-100 py-12 px-6">
+                <div className="max-w-6xl mx-auto">
+                    <h2 className="text-2xl font-bold text-center text-blue-900">Global Business Presence</h2>
+                    <Swiper
+                        spaceBetween={10}
+                        slidesPerView={3}
+                        autoplay={{ delay: 2500, disableOnInteraction: false }}
+                        speed={1000}
+                        loop={true}
+                        navigation
+                        pagination={{ el: ".custom-pagination", clickable: true }}
+                        modules={[Autoplay, Navigation, Pagination]}
+                        className="mt-6 pb-8"
+                        breakpoints={{
+                            640: { slidesPerView: 1 },
+                            768: { slidesPerView: 2 },
+                            1024: { slidesPerView: 3 },
+                        }}
+                    >
+                        {countryImages.map((country, index) => (
+                            <SwiperSlide key={index} className="relative text-center">
+                                <img
+                                    src={country.img}
+                                    alt={country.name}
+                                    className="w-40 h-40 mx-auto object-contain"
+                                />
+                                <h3 className="text-lg font-semibold text-gray-800 mt-2">{country.name}</h3>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                    <div className="custom-pagination flex justify-center mt-4"></div>
+                </div>
             </section>
         </div>
     );
