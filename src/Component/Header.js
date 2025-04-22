@@ -35,7 +35,7 @@ const Header = () => {
           {/* Logo and Title */}
           <div className="flex items-center space-x-2">
             <img
-              src={`${process.env.PUBLIC_URL}/Metavel_logo.jpeg`}
+              src={`${process.env.PUBLIC_URL}/Metavel_logo.png`}
               alt="Metavel Logo"
               className="w-10 h-10"
             />
