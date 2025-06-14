@@ -35,9 +35,7 @@ const Footer = () => {
         <div className="text-center mb-4">
           <h3 className="text-lg font-semibold">Address</h3>
           <p className="text-sm">
-            C / 204 , BALAJI RESIDENCY,<br />
-            NR KALYAN FARM, NIKOL, Ahmedabad, <br />
-            AHMADABAD, GUJARAT, 382350
+            Rakhiyal, Ahmedabad, India 380023.
           </p>
         </div>
       </div>

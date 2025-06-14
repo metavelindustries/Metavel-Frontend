@@ -102,7 +102,7 @@ const ContactPage = () => {
                   <div>
                     <h3 className="font-semibold mb-1 text-on-dark">Office Address</h3>
                     <p className="text-on-dark">
-                      C / 204, BALAJI RESIDENCY, NR KALYAN FARM, NIKOL, Ahmedabad, GUJARAT, 382350
+                      Rakhiyal, Ahmedabad, India 380023.
                     </p>
                   </div>
                 </div>
