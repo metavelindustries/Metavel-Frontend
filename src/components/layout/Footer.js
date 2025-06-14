@@ -144,7 +144,7 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin size={20} className="flex-shrink-0 mt-1 text-[var(--color-secondary-main)]" />
                 <p className="text-sm text-white">
-                  C / 204, BALAJI RESIDENCY, NR KALYAN FARM, NIKOL, Ahmedabad, GUJARAT, 382350
+                Rakhiyal, Ahmedabad, India 380023.
                 </p>
               </div>
               <a 
